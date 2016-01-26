@@ -46,4 +46,13 @@ class Zip
 
     return result
   end
+
+  def self.find id
+    Rails.logger.debug {"getting zip #{id}"}
+
+    doc=collection.find(:_id=>id)
+            .projection({_id:true, city:true, state:true, pop:true})
+            .first
+    return doc.nil? ? nil : Zip.new(doc)
+  end
 end
