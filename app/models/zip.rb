@@ -55,4 +55,10 @@ class Zip
             .first
     return doc.nil? ? nil : Zip.new(doc)
   end
+
+  def save
+    Rails.logger.debug {"saving #{self}"}
+
+    self.class.collection.insert_one(_id:@id, city:@city, state:@state, pop:@pop)
+  end
 end
