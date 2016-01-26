@@ -1,4 +1,19 @@
 class Zip
+  attr_accessor :id, :city, :state, :population
+
+  def to_s
+    "#{@id}: #{@city}, #{@state}, pop=#{@population}"
+  end
+
+  # initialize for both Mongo and a Web hash
+  def initialize(params={})
+    #switch between both internal and external views of id and population
+    @id=params[:_id].nil? ? params[:id] : params[:_id]
+    @city=params[:city]
+    @state=params[:state]
+    @population=params[:pop].nil? ? params[:population] : params[:pop]
+  end
+
   # convenience method for access to client in console
   def self.mongo_client
     Mongoid::Clients.default
