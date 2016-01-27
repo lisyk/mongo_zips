@@ -70,4 +70,10 @@ class Zip
 
     self.class.collection.find(_id:@id).update_one(:$set=>updates)
   end
+
+  def destroy
+    Rails.logger.debug {"destroying #{self}"}
+
+    self.class.collection.find(_id:@id).delete_one
+  end
 end
