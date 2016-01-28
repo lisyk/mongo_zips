@@ -1,8 +1,21 @@
 class Zip
+  include ActiveModel::Model
+
   attr_accessor :id, :city, :state, :population
 
   def to_s
     "#{@id}: #{@city}, #{@state}, pop=#{@population}"
+  end
+  
+  # tell Rails whether this instance is persisted
+  def persisted?
+    !@id.nil?
+  end
+  def created_at
+    nil
+  end
+  def updated_at
+    nil
   end
 
   # initialize for both Mongo and a Web hash
