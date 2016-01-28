@@ -15,6 +15,7 @@
 
   <tbody>
     <% @zips.each do |zip| %>
+      <% zip=toZip(zip) %>
       <tr>
         <td><%= zip.id %></td>
         <td><%= zip.city %></td>
