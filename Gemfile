@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # MongoDB
 gem 'mongoid', '~> 5.0.0'
 
+## Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate', '~> 3.0.6'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
